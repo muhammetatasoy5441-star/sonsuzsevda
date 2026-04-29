@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zehra ❤️</title>
+
+<style>
+body{margin:0;font-family:'Segoe UI';background:linear-gradient(135deg,#fff,#f5e6c8);text-align:center;overflow-x:hidden;}
+.section{padding:50px 20px;}
+h1,h2,p{color:#bfa14a;}
+
+button{
+padding:12px 25px;
+background:linear-gradient(45deg,gold,#d4af37);
+border:none;
+border-radius:25px;
+color:white;
+cursor:pointer;
+margin:10px;
+}
+
+/* intro */
+#intro{
+position:fixed;width:100%;height:100%;background:black;display:flex;justify-content:center;align-items:center;z-index:99999;
+animation:fadeOut 2s ease forwards;animation-delay:6s;
+}
+#logo{color:#bfa14a;font-size:50px;animation:zoom 6s;}
+@keyframes zoom{0%{transform:scale(1.5);opacity:0;}50%{opacity:1;}100%{transform:scale(0.8);opacity:0;}}
+@keyframes fadeOut{to{opacity:0;visibility:hidden;}}
+
+/* login */
+#login{
+position:fixed;width:100%;height:100%;background:black;color:white;display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:99998;
+}
+
+/* slider */
+.slider{overflow:hidden;white-space:nowrap;}
+.slider-track{display:inline-block;animation:scroll 35s linear infinite;}
+.slider img{height:200px;margin:10px;border-radius:15px;cursor:pointer;}
+@keyframes scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* lightbox */
+#lightbox{
+display:none;position:fixed;width:100%;height:100%;background:rgba(0,0,0,0.9);justify-content:center;align-items:center;z-index:9999;
+}
+#lightbox img{max-width:90%;max-height:90%;border-radius:15px;}
+
+/* hearts */
+.heart{
+position:fixed;width:15px;height:15px;background:red;transform:rotate(45deg);animation:float 5s linear infinite;
+}
+.heart:before,.heart:after{
+content:'';position:absolute;width:15px;height:15px;background:red;border-radius:50%;
+}
+.heart:before{top:-7px;}
+.heart:after{left:-7px;}
+@keyframes float{from{transform:translateY(100vh);}to{transform:translateY(-10vh);}}
+
+/* typewriter */
+.typewriter{border-right:2px solid gold;white-space:nowrap;overflow:hidden;display:inline-block;}
+</style>
+</head>
+
+<body>
+
+<!-- INTRO -->
+<div id="intro">
+<div id="logo">Z E H R A ❤️</div>
+</div>
+
+<!-- LOGIN -->
+<div id="login">
+<h2>Sana özel bir hikaye ❤️</h2>
+<input type="password" id="pass">
+<button onclick="check()">Giriş</button>
+</div>
+
+<audio id="music" loop>
+<source src="muzik.mp3">
+</audio>
+
+<div class="section">
+<h1>Zehra'ma ❤️</h1>
+<button onclick="goToSection('hikaye')">Başla</button>
+</div>
+
+<div id="hikaye" class="section">
+<h2>Bizim Hikayemiz</h2>
+<p id="hikayeText" class="typewriter"></p>
+</div>
+
+<div class="section">
+<h2>Anılarımız 📸</h2>
+
+<div class="slider">
+<div class="slider-track">
+
+<!-- 20 FOTO -->
+<img src="foto1.jpg" onclick="openL(this.src)">
+<img src="foto2.jpg" onclick="openL(this.src)">
+<img src="foto3.jpg" onclick="openL(this.src)">
+<img src="foto4.jpg" onclick="openL(this.src)">
+<img src="foto5.jpg" onclick="openL(this.src)">
+<img src="foto6.jpg" onclick="openL(this.src)">
+<img src="foto7.jpg" onclick="openL(this.src)">
+<img src="foto8.jpg" onclick="openL(this.src)">
+<img src="foto9.jpg" onclick="openL(this.src)">
+<img src="foto10.jpg" onclick="openL(this.src)">
+<img src="foto11.jpg" onclick="openL(this.src)">
+<img src="foto12.jpg" onclick="openL(this.src)">
+<img src="foto13.jpg" onclick="openL(this.src)">
+<img src="foto14.jpg" onclick="openL(this.src)">
+<img src="foto15.jpg" onclick="openL(this.src)">
+<img src="foto16.jpg" onclick="openL(this.src)">
+<img src="foto17.jpg" onclick="openL(this.src)">
+<img src="foto18.jpg" onclick="openL(this.src)">
+<img src="foto19.jpg" onclick="openL(this.src)">
+<img src="foto20.jpg" onclick="openL(this.src)">
+
+<!-- repeat -->
+<img src="foto1.jpg">
+<img src="foto2.jpg">
+<img src="foto3.jpg">
+<img src="foto4.jpg">
+<img src="foto5.jpg">
+<img src="foto6.jpg">
+<img src="foto7.jpg">
+<img src="foto8.jpg">
+<img src="foto9.jpg">
+<img src="foto10.jpg">
+<img src="foto11.jpg">
+<img src="foto12.jpg">
+<img src="foto13.jpg">
+<img src="foto14.jpg">
+<img src="foto15.jpg">
+<img src="foto16.jpg">
+<img src="foto17.jpg">
+<img src="foto18.jpg">
+<img src="foto19.jpg">
+<img src="foto20.jpg">
+
+</div>
+</div>
+</div>
+
+<div class="section">
+<h2>Ne Kadar Zamandır ⏳</h2>
+<p id="counter"></p>
+</div>
+
+<div class="section">
+<h2>Özel Anılar</h2>
+<button onclick="showWedding()">Düğünümüzü Görmek için tıkla 💍</button>
+</div>
+
+<div id="wedding" class="section" style="display:none;">
+<h2>Düğünümüz 💍</h2>
+<img src="dugun.jpg" style="width:90%;max-width:400px;border-radius:15px;">
+</div>
+
+<div class="section">
+<h2>Mektubum 💌</h2>
+<p id="letter" class="typewriter"></p>
+</div>
+
+<div class="section">
+<h2>❤️</h2>
+<p>Seni bir ömür boyu seveceğim ❤️</p>
+</div>
+
+<div id="lightbox" onclick="closeL()">
+<img id="lightImg">
+</div>
+
+<script>
+
+function check(){
+if(document.getElementById("pass").value==="0405"){
+document.getElementById("login").style.display="none";
+document.getElementById("music").play();
+}else alert("Yanlış şifre");
+}
+
+function goToSection(id){
+document.getElementById(id).scrollIntoView({behavior:'smooth'});
+}
+
+function showWedding(){
+document.getElementById("wedding").style.display="block";
+document.getElementById("wedding").scrollIntoView({behavior:'smooth'});
+}
+
+function openL(src){
+document.getElementById("lightbox").style.display="flex";
+document.getElementById("lightImg").src=src;
+}
+
+function closeL(){
+document.getElementById("lightbox").style.display="none";
+}
+
+/* sayaç */
+let start=new Date("2019-01-01");
+let now=new Date();
+let diff=Math.floor((now-start)/86400000);
+document.getElementById("counter").innerText=diff+" gündür birlikteyiz ❤️";
+
+/* yazı */
+function type(el,text,speed){
+let i=0; el.innerHTML="";
+function t(){ if(i<text.length){ el.innerHTML+=text[i]; i++; setTimeout(t,speed);} }
+t();
+}
+
+window.onload=function(){
+type(document.getElementById("hikayeText"),
+"Dershanede seni ilk gördüğüm an kalbimden vuruldum... ❤️",40);
+
+type(document.getElementById("letter"),
+"seni ilk gördüğümde kalbimden vuruldum... sen benim en güzel duamdın... seni sonsuza kadar seveceğim ❤️",30);
+}
+
+/* kalpler */
+setInterval(()=>{
+let h=document.createElement("div");
+h.className="heart";
+h.style.left=Math.random()*100+"vw";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),5000);
+},300);
+
+</script>
+
+</body>
+</html>
